@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "944579909497",
+    "firebase_url": "https://coca-8cf9d.firebaseio.com",
+    "project_id": "coca-8cf9d",
+    "storage_bucket": "coca-8cf9d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944579909497:android:2ae6aa57b854b6be6241a8",
+        "android_client_info": {
+          "package_name": "com.full"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944579909497-57ggakgrctlpuo5pkb1li6sd9v3tfk96.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCub3Ng3vw5-duT50Brtyp1X8FixjcMIro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944579909497-57ggakgrctlpuo5pkb1li6sd9v3tfk96.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "944579909497-u59864hapks57iqgfcqpg60m6dt3qpkn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.erkebulan.cocacola"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

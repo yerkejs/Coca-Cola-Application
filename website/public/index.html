@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Entering captcha</title>
+</head>
+<body style="display: flex; flex-direction: column; align-items: center; justify-content: center">
+    <p style="text-align: center; font-size: 1.2em; font-weight: 700; margin-top:30px; font-family: -apple-system;">Пройдите капчу и подвтердите что вы не робот<p/>
+    <button id="continue-btn" style="display:none">Continue to app</button>
+
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAxd_upAeNi3uiMYOCSuGlIOXYqu3qcx7k",
+        authDomain: "main-b1f85.firebaseapp.com",
+        databaseURL: "https://main-b1f85.firebaseio.com",
+        projectId: "main-b1f85",
+        storageBucket: "main-b1f85.appspot.com",
+        messagingSenderId: "658361620182",
+        appId: "1:658361620182:web:8e9c00715134af77865b77",
+        measurementId: "G-8EJGJK6PB8"
+      };
+      firebase.initializeApp(config);
+    </script>    <script>
+        function getToken(callback) {
+            var container = document.createElement('div');
+            container.id = 'captcha';
+            document.body.appendChild(container);
+            var captcha = new firebase.auth.RecaptchaVerifier('captcha', {
+                'size': 'normal',
+                'callback': function(token) {
+                    callback(token);
+                },
+                'expired-callback': function() {
+                    callback('');
+                }
+            });
+            captcha.render().then(function() {
+                captcha.verify();
+            });
+        }
+        function sendTokenToApp(token) {
+            var baseUri = decodeURIComponent(location.search.replace(/^\?appurl\=/, ''));
+            const finalUrl = location.href = baseUri + '/?token=' + encodeURIComponent(token);
+            const continueBtn = document.querySelector('#continue-btn');
+            console.log(finalUrl);
+            // continueBtn.onclick = (event)=>{
+            //     window.open(finalUrl,'_blank')
+            // }
+            continueBtn.style.display = "block";
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            getToken(sendTokenToApp);
+        });
+    </script>
+</body>
+</html>
